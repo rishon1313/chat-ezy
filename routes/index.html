@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <title>Chat Ezy</title>
+    <style>
+       /* * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }*/
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;}
+        button {font:  bold 13px Verdana ,sans-serif;}
+        button:hover { background-color: #4CAF50; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+        #messages { margin-bottom: 40px }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../public/stylesheets/custom.css"/>
+</head>
+<body>
+<ul id="messages"></ul>
+<form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(function () {
+        var socket = io();
+        $('form').submit(function(){
+            if($('#m').val().trim()!='')
+            {
+            socket.emit('chat message', $('#m').val());
+        }
+            $('#m').val('');
+            return false;
+        });
+        socket.on('chat message', function(msg){
+            $('#messages').append($('<li>').html("<h7 style='font: bold 13px/30px Verdana ,sans-serif'>"+msg+"</h7>"));
+            window.scrollTo(0, document.body.scrollHeight);
+            coders("New Message", 10 );
+            notifyMe();
+        });
+    });
+(function () {
+
+var original = document.title;
+var timeout;
+
+window.coders = function (newMsg, howManyTimes) {
+    function step() {
+        document.title = (document.title == original) ? newMsg : original;
+
+        if (--howManyTimes > 0) {
+            timeout = setTimeout(step, 1000);
+        };
+    };
+
+    howManyTimes = parseInt(howManyTimes);
+
+    if (isNaN(howManyTimes)) {
+        howManyTimes = 5;
+    };
+
+    cancelcoders(timeout);
+    step();
+};
+
+window.cancelcoders = function () {
+    clearTimeout(timeout);
+    document.title = original;
+};
+
+}());
+
+    function notifyMe() {
+        if (Notification.permission !== "granted")
+            Notification.requestPermission();
+        else {
+            var notification = new Notification('Chat Ezy', {
+                icon: 'https://img.icons8.com/material/50/000000/new-message.png',
+                body: "New Message !",
+            });
+
+            notification.onclick = function () {
+                window.open("http://127.0.0.1:3333/chat");
+            };
+
+        }
+
+    }
+</script>
+<div class="footer">
+</div>
+</body>
+</html>

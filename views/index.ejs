@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="A multiclient chient room">
+    <meta name="author" content="Rishon">
+
+    <title>TaskManagement | Home</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="color:#13a5a6;font:bold">TaskManagement</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav select-active">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class=""><a href="/task/all-tasks/">All Tasks</a></li>
+                    <li class=""><a href="/task/my-tasks/">My Tasks</a></li>
+                    <li><a href="/task/new-task/" class="btn btn-xs btn-default create-btn" style="padding:5px 10px;">Create New Task</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li><a href="/login/?next=/">Login</a></li>
+                        <li><a href="/signup/?next=/">Signup</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container page-wrapper">
+        
+<div class="col-md-offset-1 col-md-10">
+    <h2>Welcome to TaskManagement Portal</h2><hr>
+
+    <h4>This project is hosted on <a href="/">heroku</a></h4>
+
+    <img src="#" style="width: 100%;height: 380px;" />
+    <br><br>
+
+    <a href="/task/all-tasks/" class="btn btn-info" style="margin-bottom:20px">Show All Tasks </a>
+</div>
+
+    </div>
+
+    <div class="footer">
+        <p style="font-size:10px; color:black">TaskManagement &copy; Copyright 2017. [Developed By: Rishon Patani]</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
