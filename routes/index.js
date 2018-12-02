@@ -4,12 +4,12 @@ var io = require('socket.io')(http);
 var Client = require('node-rest-client').Client;
 var querystring = require('querystring');
 var beep = require('beepbeep');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 var profanity = require('profanity-censor');
 
 messageList=[]
 app.get('/chat', function(req, res){
-     new Client().get("http://1ocalhost:3000", function (data, response) {
+     new Client().get("http://127.0.0.1:3001", function (data, response) {
        console.log(data+"!!!");
        console.log(typeof data);
        console.log(response+"@@@@");

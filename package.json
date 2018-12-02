@@ -5,10 +5,9 @@
   "dependencies": {
     "bad-words": "^1.6.1",
     "beepbeep": "^1.2.1",
+    "body-parser": "^1.18.3",
     "compat": "^1.0.4",
-    "express": "^4.16.2",
-    "node":"^6.11.2",
-    "heroku": "^7.18.10",
+    "express": "^4.16.4",
     "node-rest-client": "^3.1.0",
     "profanity-censor": "^1.0.5",
     "socket.io": "^1.7.4",
