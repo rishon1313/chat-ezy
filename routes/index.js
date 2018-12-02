@@ -9,7 +9,7 @@ var profanity = require('profanity-censor');
 
 messageList=[]
 app.get('/chat', function(req, res){
-     new Client().get("http://127.0.0.1:3001", function (data, response) {
+     new Client().get("https://chat-ezy.herokuapp.com/", function (data, response) {
        console.log(data+"!!!");
        console.log(typeof data);
        console.log(response+"@@@@");
